@@ -4,40 +4,39 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 23
+    - name: Set up Node.js (v23)
+      uses: actions/setup-node@v3
+      with:
+        node-version: 23
 
-      - name: Install dependencies
-        run: npm install
+    - name: Install dependencies
+      run: npm install
 
-      - name: Run tests
-        run: npm test
+    - name: Run tests
+      run: npm test
 
-      - name: Build Docker image
-        run: docker build -t ultracloud5652/nodejs-cicd-app .
+    - name: Build Docker image
+      run: docker build -t ultracloud5652/nodejs-cicd-app .
 
-      - name: Push Docker image to Docker Hub
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        run: |
-          echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
-          docker tag ultracloud5652/nodejs-cicd-app ultracloud5652/nodejs-cicd-app:latest
-          docker push ultracloud5652/nodejs-cicd-app:latest
+    - name: Log in to Docker Hub
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      run: echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
 
-      - name: Deploy Application (Optional)
-        run: echo "Deploying the application..." 
+    - name: Tag and push Docker image
+      run: |
+        docker tag ultracloud5652/nodejs-cicd-app ultracloud5652/nodejs-cicd-app:latest
+        docker push ultracloud5652/nodejs-cicd-app:latest
+
+    - name: Build and Deploy
+      run: echo "Deploying the application..."
