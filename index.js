@@ -1,11 +1,8 @@
-const connectDB = require('./app/config/db');
-const config = require('./app/config/config');
-const app = require('./app/app');
+// app/routes/index.js
+const express = require('express');
+const router = express.Router();
+const homeController = require('../controllers/homeController');
 
-// Connect Database
-connectDB();
+router.get('/', homeController.homePage);
 
-// Start Server
-app.listen(config.port, () => {
-  console.log(`Server running on port ${config.port}`);
-});
+module.exports = router;
