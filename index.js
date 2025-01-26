@@ -1,8 +1,12 @@
-// app/routes/index.js
+// index.js
 const express = require('express');
-const router = express.Router();
-const homeController = require('../controllers/homeController');
+const router = require('./app/routes/index');
 
-router.get('/', homeController.homePage);
+const app = express();
 
-module.exports = router;
+app.use('/', router);
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
