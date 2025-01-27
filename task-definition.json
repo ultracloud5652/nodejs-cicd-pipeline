@@ -1,24 +1,40 @@
 {
-    "family": "nodejs-cicd-task",
-    "networkMode": "awsvpc",
-    "executionRoleArn": "arn:aws:iam::975050057999:role/ecsTaskExecutionRole",
-    "containerDefinitions": [
-      {
-        "name": "nodejs-cicd-container",
-        "image": "ultracloud5652/nodejs-cicd-app:latest",
-        "memory": 512,
-        "cpu": 256,
-        "portMappings": [
-          {
-            "containerPort": 3000,
-            "hostPort": 3000,
-            "protocol": "tcp"
-          }
-        ]
+  "family": "nodejs-cicd-task",
+  "networkMode": "awsvpc",
+  "executionRoleArn": "arn:aws:iam::975050057999:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "nodejs-cicd-container",
+      "image": "ultracloud5652/nodejs-cicd-app:latest",
+      "memory": 512,
+      "cpu": 256,
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        {
+          "name": "NODE_ENV",
+          "value": "production"
+        },
+        {
+          "name": "PORT",
+          "value": "3000"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/nodejs-cicd-task",
+          "awslogs-region": "us-east-2",
+          "awslogs-stream-prefix": "ecs"
+        }
       }
-    ],
-    "requiresCompatibilities": ["FARGATE"],
-    "cpu": "256",
-    "memory": "512"
-  }
-  
+    }
+  ],
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512"
+}
