@@ -1,8 +1,9 @@
 # **Node.js CI/CD Pipeline with AWS ECS Deployment**
 
-## Overview
+## **Overview**
 
 #### This repository demonstrates a comprehensive CI/CD pipeline for a Node.js application. The project showcases automated testing, containerization, and deployment using GitHub Actions and AWS ECS (Elastic Container Service). It includes multi-environment setups (staging and production) with manual approval for production deployments.
+
 
 ## **Features**
 
@@ -16,27 +17,29 @@
 
 ### Infrastructure as Code: Task definitions and ECS configurations are version-controlled.
 
+
 ## **Table of Contents**
 
-### Technologies Used
+### 1. Technologies Used
 
-### Architecture
+### 2. Architecture
 
-### Getting Started
+### 3. Getting Started
 
-### Prerequisites
+    - Prerequisites
 
-### Setup Guide
+    - Setup Guide
 
-### CI/CD Workflow
+### 4. CI/CD Workflow
 
-### AWS ECS Setup
+### 5. AWS ECS Setup
 
-### Project Structure
+### 6. Project Structure
 
-### Contributing
+### 7. Contributing
 
-### License
+### 8. License
+
 
 ## **Technologies Used**
 
