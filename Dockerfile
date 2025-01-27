@@ -1,20 +1,30 @@
-# Use Node.js 20 as the base image
-FROM node:20
+# Stage 1: Build and Test
+FROM node:20-bullseye as build
 
-# Set the working directory
+# Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json first for dependency caching
+# Copy package files and install dependencies
 COPY package*.json ./
+RUN npm install
 
-# Install dependencies
-RUN npm install --only=production
-
-# Copy the rest of the application code
+# Copy application source code
 COPY . .
 
-# Expose port 3000 for the app
+# Run tests to ensure the build passes
+RUN npm test
+
+# Stage 2: Production
+FROM node:20-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy only necessary files from the build stage
+COPY --from=build /app /app
+
+# Expose the port your app runs on
 EXPOSE 3000
 
-# Command to run the application
+# Command to run the app
 CMD ["node", "index.js"]

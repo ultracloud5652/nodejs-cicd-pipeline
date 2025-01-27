@@ -3,38 +3,45 @@
   "networkMode": "awsvpc",
   "executionRoleArn": "arn:aws:iam::975050057999:role/ecsTaskExecutionRole",
   "containerDefinitions": [
-      {
-          "name": "nodejs-cicd-container",
-          "image": "ultracloud5652/nodejs-cicd-app:latest",
-          "cpu": 256,
-          "memory": 512,
-          "portMappings": [
-              {
-                  "containerPort": 3000,
-                  "hostPort": 3000,
-                  "protocol": "tcp"
-              }
-          ],
-          "essential": true,
-          "environment": [
-              {
-                  "name": "PORT",
-                  "value": "3000"
-              },
-              {
-                  "name": "NODE_ENV",
-                  "value": "production"
-              }
-          ],
-          "logConfiguration": {
-              "logDriver": "awslogs",
-              "options": {
-                  "awslogs-group": "/ecs/nodejs-cicd-app",
-                  "awslogs-region": "us-east-2",
-                  "awslogs-stream-prefix": "ecs"
-              }
-          }
+    {
+      "name": "nodejs-cicd-container",
+      "image": "ultracloud5652/nodejs-cicd-app:latest",
+      "cpu": 256,
+      "memory": 512,
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "hostPort": 3000,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environment": [
+        {
+          "name": "PORT",
+          "value": "3000"
+        },
+        {
+          "name": "NODE_ENV",
+          "value": "production"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/nodejs-cicd-app",
+          "awslogs-region": "us-east-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "healthCheck": {
+        "command": ["CMD-SHELL", "curl -f http://localhost:3000 || exit 1"],
+        "interval": 30,
+        "timeout": 5,
+        "retries": 3,
+        "startPeriod": 10
       }
+    }
   ],
   "requiresCompatibilities": ["FARGATE"],
   "cpu": "256",
