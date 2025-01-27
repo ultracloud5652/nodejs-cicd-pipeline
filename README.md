@@ -40,17 +40,17 @@
 
 ## **Technologies Used**
 
-#### - **Node.js:** Backend framework.
+ - **Node.js:** Backend framework.
 
-#### - **Docker:** Containerization.
+ - **Docker:** Containerization.
 
-#### - **GitHub Actions:** CI/CD automation.
+ - **GitHub Actions:** CI/CD automation.
 
-#### - **AWS ECS:** Cloud-based container orchestration.
+ - **AWS ECS:** Cloud-based container orchestration.
 
-#### - **Jest:** Testing framework.
+ - **Jest:** Testing framework.
 
-#### - **AWS CLI:** Command-line interface for AWS operations.
+ - **AWS CLI:** Command-line interface for AWS operations.
 
 ## **Architecture**
 
