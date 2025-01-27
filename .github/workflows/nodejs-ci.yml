@@ -1,4 +1,4 @@
-name: Node.js CI/CD Pipeline
+name: Deploy to Amazon ECS
 
 on:
   push:
@@ -6,37 +6,57 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    # Step 1: Checkout Code
+    - name: Check out repository
       uses: actions/checkout@v4
 
-    - name: Set up Node.js (v23)
+    # Step 2: Set Up Node.js
+    - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
         node-version: 23
 
+    # Step 3: Install Dependencies
     - name: Install dependencies
       run: npm install
 
+    # Step 4: Run Tests
     - name: Run tests
       run: npm test
 
+    # Step 5: Build Docker Image
     - name: Build Docker image
       run: docker build -t ultracloud5652/nodejs-cicd-app .
 
+    # Step 6: Log in to Docker Hub
     - name: Log in to Docker Hub
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       run: echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
 
-    - name: Tag and push Docker image
+    # Step 7: Push Docker Image to Docker Hub
+    - name: Push Docker image to Docker Hub
       run: |
         docker tag ultracloud5652/nodejs-cicd-app ultracloud5652/nodejs-cicd-app:latest
         docker push ultracloud5652/nodejs-cicd-app:latest
 
-    - name: Build and Deploy
-      run: echo "Deploying the application..."
+    # Step 8: Configure AWS Credentials
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+
+    # Step 9: Deploy to ECS
+    - name: Deploy to ECS
+      run: |
+        aws ecs update-service \
+          --cluster cicd-fargate-cluster \
+          --service nodejs-cicd-service \
+          --force-new-deployment
