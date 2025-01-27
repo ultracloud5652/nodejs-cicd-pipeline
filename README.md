@@ -26,9 +26,9 @@
 
 ### 3. Getting Started
 
-    - Prerequisites
+- Prerequisites
 
-    - Setup Guide
+- Setup Guide
 
 ### 4. CI/CD Workflow
 
@@ -43,33 +43,35 @@
 
 ## **Technologies Used**
 
- - **Node.js:** Backend framework.
+ - Node.js:** Backend framework.
 
- - **Docker:** Containerization.
+ - Docker:** Containerization.
 
- - **GitHub Actions:** CI/CD automation.
+ - GitHub Actions:** CI/CD automation.
 
- - **AWS ECS:** Cloud-based container orchestration.
+ - AWS ECS:** Cloud-based container orchestration.
 
- - **Jest:** Testing framework.
+ - Jest:** Testing framework.
 
- - **AWS CLI:** Command-line interface for AWS operations.
+ - AWS CLI:** Command-line interface for AWS operations.
+
 
 ## **Architecture**
 
 #### 1. **Development Workflow:**
 
-#### - Code is committed to the `main` branch.
+- Code is committed to the `main` branch.
 
-#### - GitHub Actions runs automated tests and builds a Docker image.
+- GitHub Actions runs automated tests and builds a Docker image.
 
 #### 2. **Staging Deployment:**
 
-#### - The Docker image is deployed to a staging ECS cluster.
+- The Docker image is deployed to a staging ECS cluster.
 
 #### **Production Deployment:**
 
 #### - After manual approval, the Docker image is deployed to a production ECS cluster.
+
 
 ## **Getting Started**
 
