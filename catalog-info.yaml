@@ -2,28 +2,34 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: nodejs-cicd-pipeline
-  description: "A CI/CD pipeline for a Node.js app, deploying to AWS ECS using GitHub Actions"
+  description: "A CI/CD pipeline for a Node.js app, deploying using GitHub Actions"
   annotations:
     github.com/project-slug: ultracloud5652/nodejs-cicd-pipeline
-    backstage.io/techdocs-ref: dir:.
-    github.com/workflows: nodejs-ci.yml
+    github.com/actions-id: ultracloud5652/nodejs-cicd-pipeline
+    github.com/workflows: nodejs-ci.yml   # ✅ Corrected Annotation for CI/CD
+    backstage.io/techdocs-ref: dir:docs
+    backstage.io/source-location: url:https://github.com/ultracloud5652/nodejs-cicd-pipeline
+    backstage.io/view-url: https://github.com/ultracloud5652/nodejs-cicd-pipeline/blob/main/catalog-info.yaml
+    backstage.io/edit-url: https://github.com/ultracloud5652/nodejs-cicd-pipeline/edit/main/catalog-info.yaml
 
   tags:
     - nodejs
     - docker
     - github-actions
-    - aws
-    - ecs
+    - cicd
     - techdocs
+
 spec:
   type: service
   owner: ultracloud5652
   lifecycle: production
   system: cicd-pipelines
+  providesApis:
+    - nodejs-cicd-api
   links:
-    - title: Repository
+    - title: 🔗 Repository
       url: https://github.com/ultracloud5652/nodejs-cicd-pipeline
-    - title: CI/CD Pipeline
+    - title: 🚀 CI/CD Pipeline
       url: https://github.com/ultracloud5652/nodejs-cicd-pipeline/actions
-    - title: TechDocs
-      url: https://backstage.yourdomain.com/docs/default/component/nodejs-cicd-pipeline
+    - title: 📄 TechDocs
+      url: https://backstage.backstagedev.bincom.net/docs/default/component/nodejs-cicd-pipeline
