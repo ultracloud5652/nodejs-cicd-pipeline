@@ -1,100 +1,106 @@
 # **Node.js CI/CD Pipeline with AWS ECS Deployment**
 
-## **Overview**
+# **Overview**
 
 #### This repository demonstrates a comprehensive CI/CD pipeline for a Node.js application. The project showcases automated testing, containerization, and deployment using GitHub Actions and AWS ECS (Elastic Container Service). It includes multi-environment setups (staging and production) with manual approval for production deployments.
 
+
 ## **Features**
 
-### CI/CD Pipeline: Fully automated pipeline with GitHub Actions.
+#### CI/CD Pipeline: Fully automated pipeline with GitHub Actions.
 
-### Dockerized Application: The Node.js app is containerized with Docker.
+#### Dockerized Application: The Node.js app is containerized with Docker.
 
-### AWS ECS Deployment: Automated deployment to ECS clusters for both staging and production.
+#### AWS ECS Deployment: Automated deployment to ECS clusters for both staging and production.
 
-### Manual Approval: GitHub Environments require manual approval for production deployment.
+#### Manual Approval: GitHub Environments require manual approval for production deployment.
 
-### Infrastructure as Code: Task definitions and ECS configurations are version-controlled.
+#### Infrastructure as Code: Task definitions and ECS configurations are version-controlled.
+
 
 ## **Table of Contents**
 
-### Technologies Used
+1. Technologies Used
 
-### Architecture
+2. Architecture
 
-### Getting Started
+3. Getting Started
 
-### Prerequisites
+- Prerequisites
 
-### Setup Guide
+- Setup Guide
 
-### CI/CD Workflow
+4. CI/CD Workflow
 
-### AWS ECS Setup
+5. AWS ECS Setup
 
-### Project Structure
+6. Project Structure
 
-### Contributing
+7. Contributing
 
-### License
+8. License
+
 
 ## **Technologies Used**
 
-#### - **Node.js:** Backend framework.
+ - Node.js:** Backend framework.
 
-#### - **Docker:** Containerization.
+ - Docker:** Containerization.
 
-#### - **GitHub Actions:** CI/CD automation.
+ - GitHub Actions:** CI/CD automation.
 
-#### - **AWS ECS:** Cloud-based container orchestration.
+ - AWS ECS:** Cloud-based container orchestration.
 
-#### - **Jest:** Testing framework.
+ - Jest:** Testing framework.
 
-#### - **AWS CLI:** Command-line interface for AWS operations.
+ - AWS CLI:** Command-line interface for AWS operations.
+
 
 ## **Architecture**
 
-#### 1. **Development Workflow:**
+1. **Development Workflow:**
 
-#### - Code is committed to the `main` branch.
+- Code is committed to the `main` branch.
 
-#### - GitHub Actions runs automated tests and builds a Docker image.
+- GitHub Actions runs automated tests and builds a Docker image.
 
-#### 2. **Staging Deployment:**
+2. **Staging Deployment:**
 
-#### - The Docker image is deployed to a staging ECS cluster.
+- The Docker image is deployed to a staging ECS cluster.
 
-#### **Production Deployment:**
+3. **Production Deployment:**
 
-#### - After manual approval, the Docker image is deployed to a production ECS cluster.
+- After manual approval, the Docker image is deployed to a production ECS cluster.
+
 
 ## **Getting Started**
 
 ### **Prerequisites**
 
-#### 1. AWS Account: Ensure access to ECS, IAM, and related services.
+1. AWS Account: Ensure access to ECS, IAM, and related services.
 
-#### 2. GitHub Repository: Store project code and workflows.
+2. GitHub Repository: Store project code and workflows.
 
-#### 3. Docker Installed: Install Docker on your local machine.
+3. Docker Installed: Install Docker on your local machine.
 
-#### 4. Node.js Installed: Use version 20 or 23.
+4. Node.js Installed: Use version 20 or 23.
 
-#### 5. GitHub Actions Secrets:
+5. GitHub Actions Secrets:
 
-#### - AWS_ACCESS_KEY_ID: IAM user access key.
+- AWS_ACCESS_KEY_ID: IAM user access key.
 
-#### - AWS_SECRET_ACCESS_KEY: IAM user secret key.
+- AWS_SECRET_ACCESS_KEY: IAM user secret key.
 
-#### - AWS_REGION: Deployment region (e.g., us-east-2).
+- AWS_REGION: Deployment region (e.g., us-east-2).
 
-#### - DOCKER_USERNAME: Docker Hub username.
+- DOCKER_USERNAME: Docker Hub username.
 
-#### - DOCKER_PASSWORD: Docker Hub password.
+- DOCKER_PASSWORD: Docker Hub password.
+
 
 ## **Setup Guide**
 
-#### 1. Clone the Repository
+1. Clone the Repository
 
 ```bash
 git clone https://github.com/<your-username>/nodejs-cicd-pipeline.git
@@ -107,7 +113,7 @@ cd nodejs-cicd-pipeline
 npm install
 ```
 
-#### 3. Test the Application Locally
+3. Test the Application Locally
 ```bash
 npm test
 npm start
@@ -120,25 +126,25 @@ npm start
 
 #### File: `.github/workflows/deploy.yml`
 
-#### Workflow Steps:
+### Workflow Steps:
 
-#### 1. Checkout Code: Pulls the latest code from the repository.
+1. Checkout Code: Pulls the latest code from the repository.
 
-#### 2. Set Up Node.js: Installs Node.js version 23.
+2. Set Up Node.js: Installs Node.js version 23.
 
-#### 3. Install Dependencies: Runs npm install.
+3. Install Dependencies: Runs npm install.
 
-#### 4. Run Tests: Executes tests using Jest.
+4. Run Tests: Executes tests using Jest.
 
-#### 5. Build Docker Image: Builds the Docker image for the app.
+5. Build Docker Image: Builds the Docker image for the app.
 
-#### 6. Push to Docker Hub: Pushes the image with latest and commit SHA tags.
+6. Push to Docker Hub: Pushes the image with latest and commit SHA tags.
 
-#### 7. Deploy to Staging: Updates the ECS service in the staging cluster.
+7. Deploy to Staging: Updates the ECS service in the staging cluster.
 
-#### 8. Manual Approval: Requires approval before deploying to production.
+8. Manual Approval: Requires approval before deploying to production.
 
-#### 9. Deploy to Production: Updates the ECS service in the production cluster.
+9. Deploy to Production: Updates the ECS service in the production cluster.
 
 ## **AWS ECS Setup**
 
@@ -241,21 +247,20 @@ nodejs-cicd-pipeline/
 
 ## **For Contribution**
 
-#### 1. Fork this repository.
+1. Fork this repository.
 
-#### 2. Create a branch: `git checkout -b feature-name`.
+2. Create a branch: `git checkout -b feature-name`.
 
-#### 3. Commit changes: `git commit -m 'Add new feature'`.
+3. Commit changes: `git commit -m 'Add new feature'`.
 
-#### 4. Push the branch: `git push origin feature-name`.
+4. Push the branch: `git push origin feature-name`.
 
-#### 5. Open a pull request.
+5. Open a pull request.
 
 ## **License**
 
 #### This project is licensed under the MIT License. See the LICENSE file for details.
 
----
 
 #### Feel free to clone, experiment, and extend this project. Contributions are always welcome!
 
