@@ -23,8 +23,6 @@ spec:
   owner: ultracloud5652
   lifecycle: production
   system: cicd-pipelines
-  providesApis:
-    - nodejs-cicd-api
   links:
     - title: Repository
       url: https://github.com/ultracloud5652/nodejs-cicd-pipeline
