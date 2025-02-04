@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: ultracloud5652
+  description: The team responsible for the CI/CD pipeline.
+spec:
+  type: team
+  profile:
+    displayName: UltraCloud CI/CD Team
+    email: team@ultracloud5652.com
+    picture: https://your-org.com/logo.png
+  members:
+    - ultracloud5652
+  children: []

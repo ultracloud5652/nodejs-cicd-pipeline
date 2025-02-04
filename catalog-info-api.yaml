@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: nodejs-cicd-api
+  description: API that manages CI/CD pipeline automation for Node.js apps.
+  annotations:
+    github.com/project-slug: ultracloud5652/nodejs-cicd-pipeline
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:default/ultracloud5652
+  system: system:default/cicd-pipelines
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Node.js CI/CD API
+      version: 1.0.0
+    paths:
+      /deploy:
+        get:
+          summary: Trigger deployment
+          operationId: triggerDeployment
+          responses:
+            '200':
+              description: Deployment triggered successfully

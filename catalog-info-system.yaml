@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: cicd-pipelines
+  description: The CI/CD pipeline system for deploying services.
+spec:
+  owner: group:default/ultracloud5652
+  domain: default
