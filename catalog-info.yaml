@@ -7,7 +7,7 @@ metadata:
     github.com/project-slug: ultracloud5652/nodejs-cicd-pipeline
     github.com/actions-id: ultracloud5652/nodejs-cicd-pipeline
     github.com/workflows: nodejs-ci.yml   # ✅ Corrected Annotation for CI/CD
-    backstage.io/techdocs-ref: dir:docs
+    backstage.io/techdocs-ref: dir:.
     backstage.io/source-location: url:https://github.com/ultracloud5652/nodejs-cicd-pipeline
     backstage.io/view-url: https://github.com/ultracloud5652/nodejs-cicd-pipeline/blob/main/catalog-info.yaml
     backstage.io/edit-url: https://github.com/ultracloud5652/nodejs-cicd-pipeline/edit/main/catalog-info.yaml
