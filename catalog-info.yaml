@@ -6,14 +6,18 @@ metadata:
   annotations:
     github.com/project-slug: ultracloud5652/nodejs-cicd-pipeline
     github.com/actions: ultracloud5652/nodejs-cicd-pipeline
-    backstage.io/techdocs-ref: dir:.
-    aws.com/ecs-cluster: cicd-fargate-cluster
+    backstage.io/techdocs-ref: dir:docs
+    backstage.io/source-location: url:https://github.com/ultracloud5652/nodejs-cicd-pipeline
+    backstage.io/view-url: https://github.com/ultracloud5652/nodejs-cicd-pipeline/blob/main/catalog-info.yaml
+    backstage.io/edit-url: https://github.com/ultracloud5652/nodejs-cicd-pipeline/edit/main/catalog-info.yaml
+
   tags:
     - nodejs
     - docker
     - github-actions
     - aws
     - ecs
+    - techdocs
 spec:
   type: service
   owner: ultracloud5652
@@ -32,3 +36,5 @@ spec:
       url: https://github.com/ultracloud5652/nodejs-cicd-pipeline/actions
     - title: ECS Console
       url: https://us-east-2.console.aws.amazon.com/ecs/home?region=us-east-2#/clusters/cicd-fargate-cluster/services
+    - title: TechDocs
+      url: https://backstage.yourdomain.com/docs/default/component/nodejs-cicd-pipeline
