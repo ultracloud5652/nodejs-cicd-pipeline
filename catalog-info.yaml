@@ -25,16 +25,10 @@ spec:
   system: cicd-pipelines
   providesApis:
     - nodejs-cicd-api
-  dependsOn:
-    - resource:aws-ecs-cluster/cicd-fargate-cluster
-    - resource:aws-ecr-repo/nodejs-cicd-app
-    - resource:github-repo/ultracloud5652/nodejs-cicd-pipeline
   links:
     - title: Repository
       url: https://github.com/ultracloud5652/nodejs-cicd-pipeline
     - title: CI/CD Pipeline
       url: https://github.com/ultracloud5652/nodejs-cicd-pipeline/actions
-    - title: ECS Console
-      url: https://us-east-2.console.aws.amazon.com/ecs/home?region=us-east-2#/clusters/cicd-fargate-cluster/services
     - title: TechDocs
       url: https://backstage.yourdomain.com/docs/default/component/nodejs-cicd-pipeline
