@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: nodejs-cicd-pipeline
+  description: "A CI/CD pipeline for a Node.js app, deploying to AWS ECS using GitHub Actions"
+  annotations:
+    github.com/project-slug: ultracloud5652/nodejs-cicd-pipeline
+    backstage.io/techdocs-ref: dir:.
+    github.com/actions-workflow: .github/workflows/deploy.yml
+    aws.com/ecs-cluster: cicd-fargate-cluster
+  tags:
+    - nodejs
+    - docker
+    - github-actions
+    - aws
+    - ecs
+spec:
+  type: service
+  owner: ultracloud5652
+  lifecycle: production
+  system: cicd-pipelines
+  providesApis:
+    - nodejs-cicd-api
+  dependsOn:
+    - resource:aws-ecs-cluster/cicd-fargate-cluster
+    - resource:aws-ecr-repo/nodejs-cicd-app
+    - resource:github-repo/ultracloud5652/nodejs-cicd-pipeline
+  links:
+    - title: Repository
+      url: https://github.com/ultracloud5652/nodejs-cicd-pipeline
+    - title: CI/CD Pipeline
+      url: https://github.com/ultracloud5652/nodejs-cicd-pipeline/actions
+    - title: ECS Console
+      url: https://us-east-2.console.aws.amazon.com/ecs/home?region=us-east-2#/clusters/cicd-fargate-cluster/services
