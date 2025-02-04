@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: nodejs-cicd-api
+  description: "API definition for the Node.js CI/CD pipeline"
+  annotations:
+    github.com/project-slug: ultracloud5652/nodejs-cicd-pipeline
+spec:
+  type: openapi
+  lifecycle: production
+  owner: ultracloud5652

@@ -1,7 +1,0 @@
-apiVersion: backstage.io/v1alpha1
-kind: System
-metadata:
-  name: cicd-pipelines
-  description: "CI/CD Pipelines for Node.js applications"
-spec:
-  owner: group:ultracloud5652

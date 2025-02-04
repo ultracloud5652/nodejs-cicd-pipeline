@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: ultracloud5652
+  description: "The team responsible for the Node.js CI/CD Pipeline"
+spec:
+  type: team
+  profile:
+    displayName: Ultracloud CI/CD Team
+    email: your-email@example.com
+  children: []
+  members:
+    - ultracloud5652
