@@ -5,8 +5,8 @@ metadata:
   description: "A CI/CD pipeline for a Node.js app, deploying to AWS ECS using GitHub Actions"
   annotations:
     github.com/project-slug: ultracloud5652/nodejs-cicd-pipeline
+    github.com/actions: ultracloud5652/nodejs-cicd-pipeline
     backstage.io/techdocs-ref: dir:.
-    github.com/actions-workflow: .github/workflows/deploy.yml
     aws.com/ecs-cluster: cicd-fargate-cluster
   tags:
     - nodejs
